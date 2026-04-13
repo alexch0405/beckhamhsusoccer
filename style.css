@@ -1,0 +1,469 @@
+/* ============================================
+   Beckham Hsu Soccer Recruiting Page
+   Clean, mobile-first, coach-friendly
+   ============================================ */
+
+:root {
+    --primary: #1a3a5c;       /* Navy blue */
+    --accent: #c8102e;        /* Fire red (Concorde Fire) */
+    --accent-light: #e8384f;
+    --bg-light: #f8f9fa;
+    --bg-dark: #1a1a2e;
+    --text: #2d3436;
+    --text-light: #636e72;
+    --white: #ffffff;
+    --border: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* ---- Hero ---- */
+.hero {
+    position: relative;
+    height: 75vh;
+    min-height: 450px;
+    background: url('Photos/IMG_0341_web.jpeg') center center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(26, 58, 92, 0.65) 0%,
+        rgba(13, 33, 55, 0.80) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+}
+
+/* Headshot circle */
+.hero-headshot {
+    margin-bottom: 1.25rem;
+}
+
+.hero-headshot img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.9);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+}
+
+.hero .tagline {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.hero .club {
+    font-size: clamp(0.9rem, 2vw, 1.15rem);
+    color: var(--accent-light);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.85rem 2.5rem;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.03em;
+}
+
+.cta-button:hover {
+    background: var(--accent-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(200, 16, 46, 0.35);
+}
+
+/* ---- Navigation ---- */
+.nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0.9rem 1rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.nav a:hover {
+    color: var(--accent);
+}
+
+/* ---- Sections ---- */
+.section {
+    padding: 4rem 1.5rem;
+}
+
+.section-dark {
+    background: var(--bg-light);
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: -0.01em;
+}
+
+/* ---- Profile Grid ---- */
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.profile-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.profile-card h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.profile-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.profile-card td {
+    padding: 0.45rem 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-card td:first-child {
+    color: var(--text-light);
+    font-weight: 500;
+    width: 45%;
+}
+
+.profile-card td:last-child {
+    font-weight: 600;
+    text-align: right;
+}
+
+.stats-note {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* ---- Video Grid ---- */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.video-card h3 {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Video thumbnail link */
+.video-link {
+    text-decoration: none;
+    display: block;
+}
+
+.video-thumbnail {
+    position: relative;
+    cursor: pointer;
+}
+
+.video-thumbnail img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: rgba(200, 16, 46, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: white;
+    padding-left: 5px;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.video-link:hover .play-button {
+    background: rgba(232, 56, 79, 1);
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 4px 20px rgba(200, 16, 46, 0.5);
+}
+
+.placeholder-box {
+    background: linear-gradient(135deg, var(--primary) 0%, #0d2137 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-box p {
+    position: absolute;
+    text-align: center;
+    color: rgba(255,255,255,0.6);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.placeholder-box span {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+}
+
+/* ---- Schedule ---- */
+.schedule-list {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.schedule-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+}
+
+.schedule-date {
+    min-width: 60px;
+    text-align: center;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    flex-shrink: 0;
+}
+
+.schedule-date .month {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.schedule-date .day {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.schedule-details h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+}
+
+.schedule-details p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* ---- Contact ---- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.contact-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.contact-card h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.contact-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+}
+
+.contact-card a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-card a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* ---- Footer ---- */
+.footer {
+    background: var(--bg-dark);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 2.5rem 1rem;
+}
+
+.footer p {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.footer-sub {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    font-style: italic;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+    .hero {
+        height: 55vh;
+        min-height: 350px;
+    }
+
+    .nav-inner {
+        gap: 1rem;
+        font-size: 0.85rem;
+    }
+
+    .section {
+        padding: 3rem 1rem;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .schedule-item {
+        gap: 1rem;
+    }
+}
