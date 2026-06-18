@@ -196,7 +196,17 @@
         <p class="footer-sub">Committed to excellence on and off the field</p>
     </footer>
     <!-- Visitor-org beacon -> Cloudflare Worker. Background ping only; site URL/QR unchanged.
-         Lets us see which programs/networks view the reels. See cloudflare-worker/README.md. -->
-    <script>(function(){var W="https://beckham-visitors.mgofinance.workers.dev";try{var u=W+"/log?p="+encodeURIComponent(location.pathname);navigator.sendBeacon?navigator.sendBeacon(u):fetch(u,{mode:"no-cors",keepalive:true});}catch(e){}})();</script>
+         Lets us see which programs/networks view the reels. See cloudflare-worker/README.md.
+         SKIP YOUR OWN DEVICES: open  .../#skipme  once on each device (laptop, phone) -> it stops
+         logging there permanently (localStorage). Undo with  .../#unskipme . -->
+    <script>(function(){
+      try{
+        if(location.hash==="#skipme"){localStorage.setItem("skipbeacon","t");alert("This device will no longer be logged in the visitor dashboard.");return;}
+        if(location.hash==="#unskipme"){localStorage.removeItem("skipbeacon");alert("This device will be logged again.");return;}
+        if(localStorage.getItem("skipbeacon")==="t")return;
+      }catch(e){}
+      var W="https://beckham-visitors.mgofinance.workers.dev";
+      try{var u=W+"/log?p="+encodeURIComponent(location.pathname);navigator.sendBeacon?navigator.sendBeacon(u):fetch(u,{mode:"no-cors",keepalive:true});}catch(e){}
+    })();</script>
 </body>
 </html>
