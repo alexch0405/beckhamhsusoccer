@@ -206,7 +206,7 @@
         if(localStorage.getItem("skipbeacon")==="t")return;
       }catch(e){}
       var W="https://beckham-visitors.mgofinance.workers.dev";
-      try{var u=W+"/log?p="+encodeURIComponent(location.pathname);navigator.sendBeacon?navigator.sendBeacon(u):fetch(u,{mode:"no-cors",keepalive:true});}catch(e){}
+      try{var u=W+"/log?p="+encodeURIComponent(location.pathname)+"&r="+encodeURIComponent(document.referrer||"");navigator.sendBeacon?navigator.sendBeacon(u):fetch(u,{mode:"no-cors",keepalive:true});}catch(e){}
     })();</script>
 </body>
 </html>
